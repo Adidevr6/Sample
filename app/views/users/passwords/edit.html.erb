@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <div class="row">
+      <div class="panel panel-info">
+        <div class="panel-heading text-center"><h4>Change your password</h4></div>
+        <div class="panel-body">
+          <%= bootstrap_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-6") do |f| %>
+            <%= devise_error_messages! %>
+            <%= f.hidden_field :reset_password_token %>
+
+            <%= f.password_field :password, label: 'New Password:', autofocus: true, autocomplete: "new-password", help: @minimum_password_length ? "( #{@minimum_password_length} characters minimum)" : "" %>
+            <%= f.password_field :password_confirmation, label: 'Confirm New Password:', autocomplete: "off" %>
+
+          <div class="col-sm-offset-2 col-sm-3">
+            <%= f.primary "Change my password" %>
+            </div>
+          <% end %>
+        </div>
+        <div class="panel-footer">
+          <%= link_to "Log in", new_session_path(resource_name) %>
+          <%= link_to "Sign up", new_registration_path(resource_name), class: 'pull-right' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

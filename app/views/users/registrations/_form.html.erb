@@ -1,0 +1,18 @@
+<%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-6") do |f| %>
+  <%#= devise_error_messages! %>
+
+  <%= f.text_field :first_name %>
+  <%= f.text_field :last_name %>
+  <%= f.text_field :date_of_birth, class: 'datepicker', autocomplete: "off" %>
+  <%= f.email_field :email, autocomplete: "email" %>
+  <% unless resource.new_record? %>
+  	<%= f.password_field :current_password, label: 'Current Password:', autocomplete: "old-password" %>
+  <% end %>
+  <%= f.password_field :password, label: 'Password:', autocomplete: "new-password" %>
+  <%= f.password_field :password_confirmation, label: 'Confirm Password:', autocomplete: "new-password" %>
+  <%= f.file_field :avatar %>
+
+  <div class="col-sm-offset-4 col-sm-3">
+    <%= f.primary "Submit" %>
+  </div>
+<% end %>

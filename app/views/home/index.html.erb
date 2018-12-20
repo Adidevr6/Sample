@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <div class="row well">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h4>
+            <%= current_user.full_name %>
+            <%= link_to "Edit", edit_user_registration_path, class: 'pull-right' %>
+          </h4>
+        </div>
+        <div class="panel-body">
+          <dl class="dl-horizontal">
+            <dt>First Name</dt>
+            <dd><%= current_user.first_name %></dd>
+            <br>
+
+            <dt>Last Name</dt>
+            <dd><%= current_user.last_name %></dd>
+            <br>
+
+            <dt>Email</dt>
+            <dd><%= current_user.email %></dd>
+            <br>
+
+            <dt>Date of Birth</dt>
+            <dd><%= current_user.date_of_birth.strftime("%m/%d/%Y") %></dd>
+            <br>
+
+            <dt>Avatar</dt>
+            <dd><%= image_tag current_user.avatar.url, class: 'img-thumbnail user-avatar' %></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

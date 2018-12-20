@@ -1,0 +1,10 @@
+<% flash.each do |type, value| %>
+  <% [value].flatten.each do |message| %>
+    <div class="bs-example">
+      <div class="alert <%= alert_class(type) %> fade in">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <%= message %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
